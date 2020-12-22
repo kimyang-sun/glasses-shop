@@ -1,19 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import Home from '../pages/home/home';
+import Login from '../pages/login/login';
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ authService, isLoggedIn }) => {
   return (
     <BrowserRouter>
       <Switch>
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              Login on
+              <Home />
             </Route>
           </>
         ) : (
           <Route exact path="/">
-            not login
+            <Login authService={authService} />
           </Route>
         )}
       </Switch>

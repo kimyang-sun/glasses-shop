@@ -1,8 +1,44 @@
+@font-face {
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./fonts/NotoSansKR-Light.woff2') format('woff2'),
+    url('./fonts/NotoSansKR-Light.woff') format('woff'),
+    url('./fonts/NotoSansKR-Light.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/NotoSansKR-Regular.woff2') format('woff2'),
+    url('./fonts/NotoSansKR-Regular.woff') format('woff'),
+    url('./fonts/NotoSansKR-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/NotoSansKR-Medium.woff2') format('woff2'),
+    url('./fonts/NotoSansKR-Medium.woff') format('woff'),
+    url('./fonts/NotoSansKR-Medium.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: bold;
+  src: url('./fonts/NotoSansKR-Bold.woff2') format('woff2'),
+    url('./fonts/NotoSansKR-Bold.woff') format('woff'),
+    url('./fonts/NotoSansKR-Bold.otf') format('truetype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Noto Sans CJK KR', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +46,74 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Default */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  appearance: none;
+  border: none;
+  border-radius: 6px;
+  color: inherit;
+  outline: none;
+  padding: 0;
+  transition: opacity 0.5s;
+}
+
+input,
+textarea {
+  outline: none;
+  appearance: none;
+  border: none;
+  border-radius: 6px;
+  resize: none;
+  transition: border 0.5s;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+button:hover,
+input[type='submit']:hover {
+  opacity: 0.8;
+}
+
+input:focus,
+textarea:focus {
+}
+
+* {
+  box-sizing: border-box;
 }
