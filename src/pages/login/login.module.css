@@ -1,4 +1,4 @@
-@value makerBlack, makerOrange, makerBlue from '../../common/colors.css';
+@value makerBlack, makerOrange, makerBlue from 'common/colors.css';
 
 .bg {
   display: flex;

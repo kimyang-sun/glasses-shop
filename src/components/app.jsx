@@ -1,5 +1,6 @@
+import { StoreProvider } from 'contexts/context_store';
 import { useEffect, useState } from 'react';
-import { firebaseAuth } from '../service/firebase';
+import Loading from './loading/loading';
 import AppRouter from './router';
 
 function App({ authService }) {
@@ -10,13 +11,15 @@ function App({ authService }) {
   }, [authService]); // 로그인정보가 변경될때마다 실행됨
 
   return (
-    <>
-      {init ? (
-        <AppRouter authService={authService} isLoggedIn={isLoggedIn} />
-      ) : (
-        '불러오는중..'
-      )}
-    </>
+    <StoreProvider>
+      <>
+        {init ? (
+          <AppRouter authService={authService} isLoggedIn={isLoggedIn} />
+        ) : (
+          <Loading />
+        )}
+      </>
+    </StoreProvider>
   );
 }
 

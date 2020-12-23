@@ -1,0 +1,54 @@
+@value makerBlack, makerOrange, makerBlue from 'common/colors.css';
+@value small from 'common/sizes.css';
+
+.header {
+  background-color: makerBlack;
+  color: makerOrange;
+  padding: 10px 20px 10px 100px;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.nav {
+  padding-left: 50px;
+  color: #fff;
+}
+
+.nav > ul {
+  display: flex;
+}
+
+.nav > ul > li > a {
+  font-size: 0.875rem;
+  display: block;
+  padding: 10px 20px;
+}
+
+.nav > ul > li > a {
+  transition: color 0.5s;
+}
+
+.nav > ul > li > a:hover {
+  color: makerOrange;
+}
+
+@media (max-width: small) {
+  .header {
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .nav {
+    padding: 15px 0 0 0;
+    display: inline-block;
+  }
+
+  .nav > ul > li > a {
+    padding: 5px 15px;
+  }
+}

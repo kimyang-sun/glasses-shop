@@ -1,0 +1,77 @@
+@value makerBlack, makerOrange, makerLightGray, makerBlue from 'common/colors.css';
+@value medium, small from 'common/sizes.css';
+
+.item {
+  flex-basis: 25%;
+  max-width: 25%;
+  padding: 20px;
+  font-size: 0.938rem;
+  text-align: center;
+}
+
+.item > div {
+  padding: 15px;
+  border: 1px solid makerLightGray;
+}
+
+.img {
+  width: 100%;
+  display: block;
+}
+
+.name,
+.price {
+  display: block;
+}
+
+.name {
+  color: makerBlack;
+  padding-top: 15px;
+  border-top: 1px solid makerLightGray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 auto;
+}
+
+.price {
+  color: makerOrange;
+  padding-top: 5px;
+}
+
+.button {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-top: 15px;
+  background-color: makerOrange;
+  color: #fff;
+  padding: 4px 15px;
+}
+
+.button > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button > span {
+  padding-left: 8px;
+}
+
+.cart {
+  background-color: makerBlue;
+}
+
+@media (max-width: medium) {
+  .item {
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: small) {
+  .item {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}

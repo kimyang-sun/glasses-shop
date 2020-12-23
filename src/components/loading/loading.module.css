@@ -1,0 +1,28 @@
+@value makerOrange, makerLightGray from 'common/colors.css';
+
+.bg {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid makerLightGray;
+  border-radius: 50%;
+  border-top-color: makerOrange;
+  animation: spinner 1s infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

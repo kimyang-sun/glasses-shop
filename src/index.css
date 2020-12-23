@@ -117,3 +117,17 @@ textarea:focus {
 * {
   box-sizing: border-box;
 }
+
+/* Library */
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+section > h2 {
+  font-size: 1.25rem;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  border-left: 3px solid #ff4e00;
+}

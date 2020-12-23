@@ -1,0 +1,13 @@
+@value large from 'common/sizes.css';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+
+@media (max-width: large) {
+  .list {
+    margin: 0;
+  }
+}
