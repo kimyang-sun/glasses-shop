@@ -87,7 +87,11 @@ button {
   color: inherit;
   outline: none;
   padding: 0;
-  transition: opacity 0.5s;
+}
+
+button,
+input {
+  transition: all 0.5s;
 }
 
 input,
@@ -98,6 +102,10 @@ textarea {
   border-radius: 6px;
   resize: none;
   transition: border 0.5s;
+}
+
+input[type='checkbox'] {
+  appearance: checkbox;
 }
 
 input[type='submit'] {

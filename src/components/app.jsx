@@ -1,4 +1,5 @@
-import { StoreProvider } from 'contexts/context_store';
+import { CartProvider } from 'contexts/cart_context';
+import { ProductProvider } from 'contexts/products_context';
 import { useEffect, useState } from 'react';
 import Loading from './loading/loading';
 import AppRouter from './router';
@@ -11,15 +12,15 @@ function App({ authService }) {
   }, [authService]); // 로그인정보가 변경될때마다 실행됨
 
   return (
-    <StoreProvider>
-      <>
+    <ProductProvider>
+      <CartProvider>
         {init ? (
           <AppRouter authService={authService} isLoggedIn={isLoggedIn} />
         ) : (
           <Loading />
         )}
-      </>
-    </StoreProvider>
+      </CartProvider>
+    </ProductProvider>
   );
 }
 

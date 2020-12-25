@@ -1,4 +1,5 @@
-const { createContext, useReducer, useContext } = require('react');
+import { createContext, useContext, useReducer } from 'react';
+import { project } from '../../node_modules/gcp-metadata/build/src/index';
 
 // State
 const initialProducts = [
@@ -135,9 +136,21 @@ const initialProducts = [
 // Reducer
 function productReducer(state, action) {
   switch (action.type) {
-    case 'TOGGLE':
+    // 장바구니 추가
+    case 'CART_ADD':
       return state.map(product =>
-        product.id === action.id ? { ...product, cart: !product.cart } : product
+        product.id === action.id ? { ...product, cart: true } : product
+      );
+    // 장바구니 삭제
+    case 'CART_REMOVE':
+      return state.map(product =>
+        product.id === action.id ? { ...product, cart: false } : product
+      );
+    // 장바구니 선택 삭제
+    case 'CART_SELECT_REMOVE':
+      const checkedIds = action.checked.map(check => check.id);
+      return state.map(product =>
+        checkedIds.includes(product.id) ? { ...product, cart: false } : product
       );
     default:
       throw new Error(`Invalid action type ${action.type}`);

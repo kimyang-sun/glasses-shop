@@ -7,6 +7,7 @@
   padding: 20px;
   font-size: 0.938rem;
   text-align: center;
+  position: relative;
 }
 
 .item > div {
@@ -59,6 +60,13 @@
 
 .cart {
   background-color: makerBlue;
+}
+
+.coupon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: 1.5rem;
 }
 
 @media (max-width: medium) {

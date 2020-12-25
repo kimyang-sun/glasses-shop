@@ -1,0 +1,70 @@
+@value makerBlack, makerOrange, makerBlue, makerLightGray from 'common/colors.css';
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0 10px 30px;
+  font-size: 0.875rem;
+  color: makerBlack;
+  border: 1px solid makerLightGray;
+  position: relative;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.image {
+  display: block;
+  width: 80px;
+}
+
+.countBox > * {
+  vertical-align: middle;
+}
+
+.button {
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: makerLightGray;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+}
+
+.button:active {
+  background-color: #fff;
+}
+
+.name {
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.count {
+  width: 50px;
+  text-align: center;
+}
+
+.sale {
+  background-color: makerBlue;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.coupon {
+  background-color: makerOrange;
+}

@@ -1,0 +1,19 @@
+@value makerBlack from 'common/colors.css';
+
+.items {
+  padding: 10px 0 20px;
+}
+
+.empty {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.remove {
+  font-size: 0.75rem;
+  background-color: makerBlack;
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 20px;
+}

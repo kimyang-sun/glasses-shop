@@ -5,7 +5,6 @@ import styles from './products.module.css';
 
 const Products = () => {
   const productState = useProductState();
-
   return (
     <section>
       <h2>상품목록</h2>
