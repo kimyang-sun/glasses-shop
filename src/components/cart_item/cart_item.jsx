@@ -11,48 +11,26 @@ const CartItem = props => {
     price,
     coupon,
     count,
-    dispatch,
-    isChecked,
-    setIsChecked,
+    handleCheck,
+    handleIncrease,
+    handleDecrease,
   } = props;
-
-  const onCheck = e => {
-    if (e.target.checked) {
-      const checkedItem = {
-        id,
-        price,
-      };
-      setIsChecked([...isChecked, checkedItem]);
-    } else {
-      const filterItem = isChecked.filter(item => item.id !== id);
-      setIsChecked(filterItem);
-    }
-  };
-
-  const onIncrease = () => {
-    dispatch({
-      type: 'INCREASE',
-      id,
-    });
-  };
-  const onDecrease = () => {
-    dispatch({
-      type: 'DECREASE',
-      id,
-    });
-  };
 
   return (
     <li className={cx('item')}>
-      <input className={cx('check')} type="checkbox" onChange={onCheck} />
+      <input
+        className={cx('check')}
+        type="checkbox"
+        onChange={e => handleCheck(e, id, price)}
+      />
       <img className={cx('image')} src={url} alt={name} />
       <span className={cx('name')}>{name}</span>
       <div className={cx('countBox')}>
-        <button className={cx('button')} onClick={onIncrease}>
+        <button className={cx('button')} onClick={() => handleIncrease(id)}>
           ＋
         </button>
         <input className={cx('count')} type="text" value={count} readOnly />
-        <button className={cx('button')} onClick={onDecrease}>
+        <button className={cx('button')} onClick={() => handleDecrease(id)}>
           －
         </button>
       </div>

@@ -1,4 +1,4 @@
-@value makerBlack from 'common/colors.css';
+@value makerBlack, makerLightGray from 'common/colors.css';
 
 .items {
   padding: 10px 0 20px;
@@ -10,10 +10,17 @@
   padding: 60px 0;
 }
 
-.remove {
+.remove,
+.all {
   font-size: 0.75rem;
   background-color: makerBlack;
   color: #fff;
   padding: 5px 10px;
   margin-top: 20px;
+}
+
+.all {
+  margin-right: 8px;
+  background-color: makerLightGray;
+  color: makerBlack;
 }

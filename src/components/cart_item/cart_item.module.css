@@ -1,4 +1,5 @@
 @value makerBlack, makerOrange, makerBlue, makerLightGray from 'common/colors.css';
+@value small from 'common/sizes.css';
 
 .item {
   display: flex;
@@ -67,4 +68,32 @@
 
 .coupon {
   background-color: makerOrange;
+}
+
+@media (max-width: small) {
+  .item {
+    padding: 35px 0 20px 20px;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .count {
+    width: 30px;
+  }
+
+  .check {
+    top: auto;
+    left: 6px;
+    bottom: 21px;
+    margin: 0;
+  }
+
+  .sale {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 0.75rem;
+  }
 }

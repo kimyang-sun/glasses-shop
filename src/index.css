@@ -139,3 +139,9 @@ section > h2 {
   padding-bottom: 5px;
   border-left: 3px solid #ff4e00;
 }
+
+@media (max-width: 1024px) {
+  section {
+    padding: 30px 15px;
+  }
+}

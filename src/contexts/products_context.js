@@ -141,11 +141,13 @@ function productReducer(state, action) {
       return state.map(product =>
         product.id === action.id ? { ...product, cart: true } : product
       );
+
     // 장바구니 삭제
     case 'CART_REMOVE':
       return state.map(product =>
         product.id === action.id ? { ...product, cart: false } : product
       );
+
     // 장바구니 선택 삭제
     case 'CART_SELECT_REMOVE':
       const checkedIds = action.checked.map(check => check.id);

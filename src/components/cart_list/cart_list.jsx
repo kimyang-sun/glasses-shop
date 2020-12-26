@@ -1,35 +1,25 @@
 import CartItem from 'components/cart_item/cart_item';
-import { useCartDispatch } from 'contexts/cart_context';
-import { useProductDispatch } from 'contexts/products_context';
 import React from 'react';
 import styles from './cart_list.module.css';
 
-const CartList = ({ cartState, isChecked, setIsChecked }) => {
-  const dispatch = useCartDispatch();
-  const productDispatch = useProductDispatch();
-  const onRemove = () => {
-    const checked = [...isChecked];
-    console.log(checked);
-    console.log(cartState);
-    if (checked.length === 0) return;
-    dispatch({
-      type: 'SELECT_REMOVE',
-      checked,
-    });
-    productDispatch({
-      type: 'CART_SELECT_REMOVE',
-      checked,
-    });
-    setIsChecked([]);
-  };
-
+const CartList = ({
+  cartState,
+  handleCheck,
+  handleCheckAll,
+  handleRemove,
+  handleIncrease,
+  handleDecrease,
+}) => {
   return (
     <>
       {cartState.length === 0 ? (
         <div className={styles.empty}>장바구니가 비었습니다 😥</div>
       ) : (
         <>
-          <button className={styles.remove} onClick={onRemove}>
+          <button className={styles.all} onClick={() => handleCheckAll()}>
+            전체 선택
+          </button>
+          <button className={styles.remove} onClick={() => handleRemove()}>
             장바구니 삭제
           </button>
           <ul className={styles.items}>
@@ -42,9 +32,9 @@ const CartList = ({ cartState, isChecked, setIsChecked }) => {
                 price={item.price}
                 coupon={item.coupon}
                 count={item.count}
-                dispatch={dispatch}
-                isChecked={isChecked}
-                setIsChecked={setIsChecked}
+                handleCheck={handleCheck}
+                handleIncrease={handleIncrease}
+                handleDecrease={handleDecrease}
               />
             ))}
           </ul>

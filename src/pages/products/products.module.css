@@ -8,6 +8,6 @@
 
 @media (max-width: large) {
   .list {
-    margin: 0;
+    margin: 0 -7.5px;
   }
 }

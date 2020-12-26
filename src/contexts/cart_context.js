@@ -12,16 +12,19 @@ function cartReducer(state, action) {
     case 'REMOVE':
       // 장바구니 삭제
       return state.filter(item => item.id !== action.id);
+
     // 장바구니 선택 삭제
     case 'SELECT_REMOVE':
       const checkedIds = action.checked.map(check => check.id);
       return state.filter(item => !checkedIds.includes(item.id));
+
     // 상품수량 추가
     case 'INCREASE':
       console.log(state);
       return state.map(item =>
         item.id === action.id ? { ...item, count: item.count + 1 } : item
       );
+
     // 상품수량 감소
     case 'DECREASE':
       return state.map(item => {
