@@ -11,6 +11,7 @@ const CartItem = props => {
     price,
     coupon,
     count,
+    isChecked,
     handleCheck,
     handleIncrease,
     handleDecrease,
@@ -21,7 +22,8 @@ const CartItem = props => {
       <input
         className={cx('check')}
         type="checkbox"
-        onChange={e => handleCheck(e, id, price)}
+        onChange={e => handleCheck(e, id, price, coupon)}
+        checked={isChecked.some(check => check.id === id) ? true : false}
       />
       <img className={cx('image')} src={url} alt={name} />
       <span className={cx('name')}>{name}</span>
@@ -34,7 +36,7 @@ const CartItem = props => {
           －
         </button>
       </div>
-      <span className={cx('price')}>{price} 원</span>
+      <span className={cx('price')}>{price.toLocaleString()} 원</span>
       <span className={cx('sale', { coupon })}>
         {coupon ? '쿠폰 O' : '쿠폰 X'}
       </span>

@@ -1,6 +1,4 @@
 import classNames from 'classnames/bind';
-import { useCartDispatch } from 'contexts/cart_context';
-import { useProductDispatch } from 'contexts/products_context';
 import React, { useMemo } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import styles from './product.module.css';
@@ -15,7 +13,7 @@ const Product = props => {
       <div>
         <img className={cx('img')} src={url} alt={name} />
         <span className={cx('name')}>{name}</span>
-        <span className={cx('price')}>{price} 원</span>
+        <span className={cx('price')}>{price.toLocaleString()} 원</span>
         <button
           className={cx('button', { cart })}
           onClick={() => handleAddOrRemove(props)}

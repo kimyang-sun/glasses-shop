@@ -104,22 +104,31 @@ textarea {
   transition: border 0.5s;
 }
 
+input[type='checkbox'],
+input[type='radio'],
+input[type='submit'] {
+  cursor: pointer;
+}
+
 input[type='checkbox'] {
   appearance: checkbox;
 }
 
+input[type='radio'] {
+  appearance: radio;
+}
+
+input[disabled] + label {
+  color: #aaa;
+}
+
 input[type='submit'] {
-  cursor: pointer;
   transition: opacity 0.5s;
 }
 
 button:hover,
 input[type='submit']:hover {
   opacity: 0.8;
-}
-
-input:focus,
-textarea:focus {
 }
 
 * {

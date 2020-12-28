@@ -4,8 +4,10 @@ import styles from './cart_list.module.css';
 
 const CartList = ({
   cartState,
+  isChecked,
   handleCheck,
   handleCheckAll,
+  allChecked,
   handleRemove,
   handleIncrease,
   handleDecrease,
@@ -16,9 +18,12 @@ const CartList = ({
         <div className={styles.empty}>장바구니가 비었습니다 😥</div>
       ) : (
         <>
-          <button className={styles.all} onClick={() => handleCheckAll()}>
-            전체 선택
-          </button>
+          <input
+            className={styles.check}
+            type="checkbox"
+            onChange={e => handleCheckAll(e)}
+            checked={allChecked ? true : false}
+          />
           <button className={styles.remove} onClick={() => handleRemove()}>
             장바구니 삭제
           </button>
@@ -32,6 +37,7 @@ const CartList = ({
                 price={item.price}
                 coupon={item.coupon}
                 count={item.count}
+                isChecked={isChecked}
                 handleCheck={handleCheck}
                 handleIncrease={handleIncrease}
                 handleDecrease={handleDecrease}

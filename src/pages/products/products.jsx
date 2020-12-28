@@ -9,6 +9,7 @@ const Products = () => {
   const productDispatch = useProductDispatch();
   const cartDispatch = useCartDispatch();
 
+  // 카트 담기 및 빼기
   const handleAddOrRemove = item => {
     const { id, name, url, price, coupon, cart } = item;
     // 카트상태가 담겨있는 상태면 빼야하고 그렇지 않으면 담아야 합니다.

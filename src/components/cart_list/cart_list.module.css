@@ -10,8 +10,7 @@
   padding: 60px 0;
 }
 
-.remove,
-.all {
+.remove {
   font-size: 0.75rem;
   background-color: makerBlack;
   color: #fff;
@@ -19,8 +18,9 @@
   margin-top: 20px;
 }
 
-.all {
-  margin-right: 8px;
-  background-color: makerLightGray;
-  color: makerBlack;
+.check {
+  margin-left: 10px;
+  margin-right: 15px;
+  width: 18px;
+  height: 18px;
 }

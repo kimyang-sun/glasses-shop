@@ -9,8 +9,9 @@ function cartReducer(state, action) {
     // 장바구니 추가
     case 'ADD':
       return [...state, action.item];
+
+    // 장바구니 삭제
     case 'REMOVE':
-      // 장바구니 삭제
       return state.filter(item => item.id !== action.id);
 
     // 장바구니 선택 삭제
@@ -33,6 +34,7 @@ function cartReducer(state, action) {
         }
         return item;
       });
+
     default:
       throw new Error(`Invaild action type ${action.type}`);
   }
