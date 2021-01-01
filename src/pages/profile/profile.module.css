@@ -1,26 +1,66 @@
-@value makerBlack, makerOrange, makerLightGray from 'common/colors.css';
+@value makerBlack, makerOrange, makerLightGray, makerBlue from 'common/colors.css';
 
-.box > input {
-  display: block;
-  margin-bottom: 10px;
+.box {
+  width: 400px;
 }
 
-.box > input[type='text'] {
+.title {
+  margin-bottom: 40px;
+}
+
+.row {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.row > span {
+  display: block;
+  flex-basis: 100px;
+}
+
+.email {
+  line-height: 36px;
+}
+
+.row > input[type='text'],
+.email {
   height: 36px;
   padding: 0 5px;
 }
 
-.box > input[type='text'],
+.row > input[type='text'],
 .message {
+  flex-basis: 300px;
   border: 1px solid makerLightGray;
-  width: 300px;
 }
 
-.box > input[type='text']:focus,
+.row > input[type='text']:focus,
 .message:focus {
   border-color: makerOrange;
 }
 
 .message {
-  height: 200px;
+  height: 60px;
+  padding: 10px 5px;
+}
+
+.save,
+.logout {
+  font-weight: bold;
+  color: makerOrange;
+  margin-top: 20px;
+  display: block;
+  padding: 5px 10px;
+  border: 1px solid makerOrange;
+}
+
+.save {
+  color: makerBlue;
+  border-color: makerBlue;
+}
+
+.row:last-child {
+  justify-content: space-around;
 }
