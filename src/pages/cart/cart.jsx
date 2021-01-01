@@ -12,17 +12,6 @@ const Cart = ({ cartRepository, user }) => {
   const [allChecked, setAllChecked] = useState(false);
   const [discountState, setDiscountState] = useState('not');
 
-  // 상품 업데이트 (장바구니 상태)
-  useEffect(() => {
-    cartRepository.syncCart(user.uid, cartData => {
-      console.log(cartData);
-      cartDispatch({
-        type: 'UPDATE',
-        carts: cartData,
-      });
-    });
-  }, [cartDispatch, cartRepository, user]);
-
   // 전체선택 체크상태 관리
   useEffect(() => {
     if (cartState.length === isChecked.length) {

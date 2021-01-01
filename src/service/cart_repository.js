@@ -6,22 +6,23 @@ class CartRepository {
       .collection('users')
       .doc(userId)
       .collection('carts')
-      .onSnapshot(snapshot => {
+      .get()
+      .then(snapshot => {
         const cartData = snapshot.docs.map(doc => ({ ...doc.data() }));
         cartData && onUpdate(cartData);
       });
   }
 
-  async syncProduct(userId, setInit, onUpdate) {
-    await firebaseFireStore
+  syncProduct(userId, onUpdate) {
+    firebaseFireStore
       .collection('users')
       .doc(userId)
       .collection('carts')
-      .onSnapshot(snapshot => {
+      .get()
+      .then(snapshot => {
         const cartDataId = snapshot.docs.map(doc => doc.data().id);
         cartDataId && onUpdate(cartDataId);
       });
-    setInit(true);
   }
 
   saveCart(userId, id, cart) {
