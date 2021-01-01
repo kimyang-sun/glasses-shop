@@ -23,7 +23,7 @@ const initialProducts = [
     name: '키오야마토 메탈테',
     url: require('images/item_3.jpg').default,
     price: 452000,
-    coupon: 20000,
+    coupon: 50000,
     cart: false,
   },
   {
@@ -63,7 +63,7 @@ const initialProducts = [
     name: '비비안웨스트우드 선글라스',
     url: require('images/item_8.jpg').default,
     price: 230000,
-    coupon: 20000,
+    coupon: 30000,
     cart: false,
   },
   {
@@ -95,7 +95,7 @@ const initialProducts = [
     name: '페누메탈 쿠에노 원형테',
     url: require('images/item_12.jpg').default,
     price: 220000,
-    coupon: 20000,
+    coupon: 25000,
     cart: false,
   },
   {
@@ -119,7 +119,7 @@ const initialProducts = [
     name: '구찌 하금테 선글라스',
     url: require('images/item_15.jpg').default,
     price: 490000,
-    coupon: 20000,
+    coupon: 50000,
     cart: false,
   },
   {
@@ -127,7 +127,7 @@ const initialProducts = [
     name: '발망 콤비테 선글라스',
     url: require('images/item_16.jpg').default,
     price: 260000,
-    coupon: 20000,
+    coupon: 30000,
     cart: false,
   },
 ];
@@ -135,6 +135,12 @@ const initialProducts = [
 // Reducer
 function productReducer(state, action) {
   switch (action.type) {
+    // 상품 업데이트 (장바구니 상태)
+    case 'CART_UPDATE':
+      return state.map(product =>
+        action.ids.includes(product.id) ? { ...product, cart: true } : product
+      );
+
     // 장바구니 추가
     case 'CART_ADD':
       return state.map(product =>
@@ -150,6 +156,7 @@ function productReducer(state, action) {
     // 장바구니 선택 삭제
     case 'CART_SELECT_REMOVE':
       const checkedIds = action.checked.map(check => check.id);
+      console.log(checkedIds);
       return state.map(product =>
         checkedIds.includes(product.id) ? { ...product, cart: false } : product
       );

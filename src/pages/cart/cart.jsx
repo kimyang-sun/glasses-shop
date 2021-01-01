@@ -4,13 +4,24 @@ import { useCartDispatch, useCartState } from 'contexts/cart_context';
 import { useProductDispatch } from 'contexts/products_context';
 import React, { useEffect, useState } from 'react';
 
-const Cart = () => {
+const Cart = ({ cartRepository, user }) => {
   const cartState = useCartState();
   const cartDispatch = useCartDispatch();
   const productDispatch = useProductDispatch();
   const [isChecked, setIsChecked] = useState([]);
   const [allChecked, setAllChecked] = useState(false);
   const [discountState, setDiscountState] = useState('not');
+
+  // 상품 업데이트 (장바구니 상태)
+  useEffect(() => {
+    cartRepository.syncCart(user.uid, cartData => {
+      console.log(cartData);
+      cartDispatch({
+        type: 'UPDATE',
+        carts: cartData,
+      });
+    });
+  }, [cartDispatch, cartRepository, user]);
 
   // 전체선택 체크상태 관리
   useEffect(() => {
@@ -22,12 +33,13 @@ const Cart = () => {
   }, [cartState.length, isChecked.length]);
 
   // 단일 상품 체크
-  const handleCheck = (checked, id, price, coupon) => {
+  const handleCheck = (checked, id, price, coupon, count) => {
     if (checked.target.checked) {
       const checkedItem = {
         id,
         price,
         coupon,
+        count,
       };
       setIsChecked([...isChecked, checkedItem]);
     } else {
@@ -60,6 +72,7 @@ const Cart = () => {
       checked,
     });
     setIsChecked([]);
+    cartRepository.selectedRemoveCart(user.uid, checked); // Firestore에 적용
   };
 
   // 상품 수량증가
@@ -68,6 +81,10 @@ const Cart = () => {
       type: 'INCREASE',
       id,
     });
+    const numberUpdate = isChecked.map(check =>
+      check.id === id ? { ...check, count: check.count + 1 } : check
+    );
+    setIsChecked(numberUpdate);
   };
 
   // 상품 수량감소
@@ -76,6 +93,10 @@ const Cart = () => {
       type: 'DECREASE',
       id,
     });
+    const numberUpdate = isChecked.map(check =>
+      check.id === id ? { ...check, count: check.count - 1 } : check
+    );
+    setIsChecked(numberUpdate);
   };
 
   // 쿠폰 클릭

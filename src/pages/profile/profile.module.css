@@ -1,0 +1,26 @@
+@value makerBlack, makerOrange, makerLightGray from 'common/colors.css';
+
+.box > input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.box > input[type='text'] {
+  height: 36px;
+  padding: 0 5px;
+}
+
+.box > input[type='text'],
+.message {
+  border: 1px solid makerLightGray;
+  width: 300px;
+}
+
+.box > input[type='text']:focus,
+.message:focus {
+  border-color: makerOrange;
+}
+
+.message {
+  height: 200px;
+}

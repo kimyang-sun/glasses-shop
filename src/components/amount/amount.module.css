@@ -1,0 +1,65 @@
+@value makerLightGray, makerOrange, makerBlue from 'common/colors.css';
+@value small from 'common/sizes.css';
+
+.container {
+  margin-top: 50px;
+}
+
+.title {
+  margin-bottom: 40px;
+}
+
+.coupons {
+  display: flex;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border: 1px solid makerLightGray;
+  border-radius: 6px;
+}
+
+.coupons > li {
+  padding-left: 40px;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box > p {
+  flex-basis: 50%;
+  padding: 20px 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 100px;
+}
+
+.box > p > span {
+  display: inline-block;
+}
+
+.discount-price {
+  color: makerBlue;
+}
+
+.final-price {
+  color: makerOrange;
+  font-size: 1.25rem;
+}
+
+@media (max-width: small) {
+  .coupons {
+    flex-wrap: wrap;
+  }
+
+  .coupons > li {
+    padding: 5px 0 5px 20px;
+    flex-basis: 50%;
+  }
+
+  .box > p {
+    flex-basis: 100%;
+    padding: 20px 0;
+  }
+}

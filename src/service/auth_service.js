@@ -23,11 +23,12 @@ class AuthService {
     firebaseAuth.signOut();
   }
 
-  onAuthChange(setIsLoggedIn, setInit) {
+  onAuthChange(setIsLoggedIn, setInit, setUserObj) {
     // 로그인 정보 변경될때 실행되는데 로그인상태와 초기화상태를 가져옴
     firebaseAuth.onAuthStateChanged(user => {
       if (user) {
         setIsLoggedIn(true); // 유저가 있는상태면 로그인상태를 true로 바꿈
+        setUserObj(user); // 유저가 있으면 유저를 세팅해줌
       } else {
         setIsLoggedIn(false); // 유저가 없으면 로그인상태 false
       }

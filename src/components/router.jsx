@@ -8,7 +8,7 @@ import Products from '../pages/products/products';
 import Profile from '../pages/profile/profile';
 import Header from './header/header';
 
-const AppRouter = ({ authService, isLoggedIn }) => {
+const AppRouter = ({ authService, cartRepository, isLoggedIn, user }) => {
   return (
     <BrowserRouter>
       {isLoggedIn && <Header />}
@@ -19,16 +19,16 @@ const AppRouter = ({ authService, isLoggedIn }) => {
               <Home />
             </Route>
             <Route exact path="/products">
-              <Products />
+              <Products cartRepository={cartRepository} user={user} />
             </Route>
             <Route exact path="/board">
               <Board />
             </Route>
             <Route exact path="/cart">
-              <Cart />
+              <Cart cartRepository={cartRepository} user={user} />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile user={user} />
             </Route>
           </>
         ) : (

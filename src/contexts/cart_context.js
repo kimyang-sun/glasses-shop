@@ -6,6 +6,10 @@ const initialCarts = [];
 // Reducer
 function cartReducer(state, action) {
   switch (action.type) {
+    // 장바구니 불러오기
+    case 'UPDATE':
+      return [...action.carts];
+
     // 장바구니 추가
     case 'ADD':
       return [...state, action.item];
@@ -21,7 +25,6 @@ function cartReducer(state, action) {
 
     // 상품수량 추가
     case 'INCREASE':
-      console.log(state);
       return state.map(item =>
         item.id === action.id ? { ...item, count: item.count + 1 } : item
       );

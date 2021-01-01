@@ -36,6 +36,10 @@
   color: makerOrange;
 }
 
+.current {
+  color: makerOrange;
+}
+
 @media (max-width: small) {
   .header {
     display: block;
