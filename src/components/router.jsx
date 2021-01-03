@@ -18,6 +18,7 @@ const AppRouter = ({
   isLoggedIn,
   user,
   logoutHandler,
+  ImageInput,
 }) => {
   const profileDispatch = useProfileDispatch();
   const productDispatch = useProductDispatch();
@@ -27,7 +28,12 @@ const AppRouter = ({
   const [profile, setProfile] = useState({
     name: '',
     message: '',
+    img: null,
   });
+  // 이미지 상태
+  // const [profileImg, setProfileImg] = useState({
+  //   url: null,
+  // });
 
   const profileOnChange = useCallback(
     e => {
@@ -35,6 +41,16 @@ const AppRouter = ({
       setProfile({
         ...profile,
         [name]: value,
+      });
+    },
+    [profile]
+  );
+
+  const imgOnChange = useCallback(
+    fileURL => {
+      setProfile({
+        ...profile,
+        img: fileURL,
       });
     },
     [profile]
@@ -48,9 +64,12 @@ const AppRouter = ({
           type: 'IMPORT',
           profile: profileData,
         });
+        setProfile({ ...profileData });
       });
     }
   }, [profileDispatch, profileRepository, user]);
+
+  // 프로필 이미지 받아오기
 
   // 상품 받아오기 (장바구니 상태)
   useEffect(() => {
@@ -101,6 +120,8 @@ const AppRouter = ({
                 logoutHandler={logoutHandler}
                 profile={profile}
                 onChange={profileOnChange}
+                imgOnChange={imgOnChange}
+                ImageInput={ImageInput}
               />
             </Route>
           </>

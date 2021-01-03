@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './profile.module.css';
 import { useProfileDispatch } from 'contexts/profile_context';
@@ -11,20 +11,11 @@ const Profile = ({
   logoutHandler,
   profile,
   onChange,
+  imgOnChange,
+  ImageInput,
 }) => {
   const history = useHistory();
   const profileDispatch = useProfileDispatch();
-
-  console.log(user);
-  // 사진 파일 업로드
-  const onFileChange = e => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloaded = finishedEvent => {
-      console.log(finishedEvent);
-    };
-    reader.readAsDataURL(file);
-  };
 
   // 프로필 저장
   const onSave = () => {
@@ -47,12 +38,7 @@ const Profile = ({
       <div className={cx('box')}>
         <div className={cx('row')}>
           <span>사진</span>
-          <input
-            className={cx('upload')}
-            type="file"
-            accept="image/*"
-            onChange={onFileChange}
-          />
+          <ImageInput profile={profile} imgOnChange={imgOnChange} />
         </div>
         <div className={cx('row')}>
           <span>이메일</span>
