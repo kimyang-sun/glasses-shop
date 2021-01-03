@@ -1,10 +1,11 @@
 import { CartProvider } from 'contexts/cart_context';
 import { ProductProvider } from 'contexts/products_context';
-import { useEffect, useState } from 'react';
+import { ProfileProvider } from 'contexts/profile_context';
+import { useCallback, useEffect, useState } from 'react';
 import Loading from './loading/loading';
 import AppRouter from './router';
 
-function App({ authService, cartRepository }) {
+function App({ authService, cartRepository, profileRepository }) {
   const [init, setInit] = useState(false); // 로그인정보가 불러와지는걸 기다리기 위한 상태
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
   const [userObj, setUserObj] = useState(null);
@@ -12,21 +13,30 @@ function App({ authService, cartRepository }) {
     authService.onAuthChange(setIsLoggedIn, setInit, setUserObj);
   }, [authService]); // 로그인정보가 변경될때마다 실행됨
 
+  // 로그아웃 핸들러 (재사용을 위해 useCallback 사용)
+  const logoutHandler = useCallback(() => {
+    authService.logout();
+  }, [authService]);
+
   return (
-    <ProductProvider>
-      <CartProvider>
-        {init ? (
-          <AppRouter
-            authService={authService}
-            cartRepository={cartRepository}
-            isLoggedIn={isLoggedIn}
-            user={userObj}
-          />
-        ) : (
-          <Loading />
-        )}
-      </CartProvider>
-    </ProductProvider>
+    <ProfileProvider>
+      <ProductProvider>
+        <CartProvider>
+          {init ? (
+            <AppRouter
+              authService={authService}
+              cartRepository={cartRepository}
+              profileRepository={profileRepository}
+              isLoggedIn={isLoggedIn}
+              user={userObj}
+              logoutHandler={logoutHandler}
+            />
+          ) : (
+            <Loading />
+          )}
+        </CartProvider>
+      </ProductProvider>
+    </ProfileProvider>
   );
 }
 

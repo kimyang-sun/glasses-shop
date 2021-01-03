@@ -136,7 +136,7 @@ const initialProducts = [
 function productReducer(state, action) {
   switch (action.type) {
     // 상품 업데이트 (장바구니 상태)
-    case 'CART_UPDATE':
+    case 'CART_IMPORT':
       return state.map(product =>
         action.ids.includes(product.id) ? { ...product, cart: true } : product
       );

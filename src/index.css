@@ -96,6 +96,7 @@ input {
 
 input,
 textarea {
+  font-family: inherit;
   outline: none;
   appearance: none;
   border: none;

@@ -7,7 +7,7 @@ const initialCarts = [];
 function cartReducer(state, action) {
   switch (action.type) {
     // 장바구니 불러오기
-    case 'UPDATE':
+    case 'IMPORT':
       return [...action.carts];
 
     // 장바구니 추가
