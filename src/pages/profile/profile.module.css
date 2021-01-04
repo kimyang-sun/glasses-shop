@@ -1,4 +1,5 @@
 @value makerBlack, makerOrange, makerLightGray, makerBlue from 'common/colors.css';
+@value tiny from 'common/sizes.css';
 
 .box {
   width: 400px;
@@ -63,4 +64,19 @@
 
 .row:last-child {
   justify-content: space-around;
+}
+
+@media (max-width: tiny) {
+  .box {
+    width: 100%;
+  }
+
+  .row > span {
+    flex-basis: 80px;
+  }
+
+  .row > input[type='text'],
+  .message {
+    flex-basis: calc(100% - 80px);
+  }
 }

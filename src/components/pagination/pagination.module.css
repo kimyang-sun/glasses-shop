@@ -1,0 +1,26 @@
+@value makerOrange, makerGray, makerBlue from 'common/colors.css';
+
+.pages {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.page {
+  margin: 0 5px;
+}
+
+.pageBtn {
+  font-size: 0.875rem;
+  font-weight: bold;
+  border: 1px solid makerGray;
+  border-radius: 50%;
+  color: makerGray;
+  width: 28px;
+  height: 28px;
+}
+
+.current {
+  border-color: makerBlue;
+  color: makerBlue;
+}
