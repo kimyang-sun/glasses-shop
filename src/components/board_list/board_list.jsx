@@ -3,6 +3,7 @@ import Pagination from 'components/pagination/pagination';
 import BoardItem from 'components/board_item/board_item';
 import styles from './board_list.module.css';
 import classNames from 'classnames/bind';
+import BoardWrite from 'components/board_write/board_write';
 const cx = classNames.bind(styles);
 
 const BoardList = ({ boardState }) => {
@@ -23,6 +24,7 @@ const BoardList = ({ boardState }) => {
 
   return (
     <section>
+      <BoardWrite />
       <h2>게시판</h2>
       {boardState.length === 0 ? (
         <p className={cx('empty')}>게시글이 없습니다 😥</p>

@@ -1,0 +1,53 @@
+@value makerLightGray, makerBlack, makerOrange from 'common/colors.css';
+
+.form {
+}
+
+h3 {
+  margin-bottom: 40px;
+}
+
+.title,
+.content {
+  display: block;
+  width: 100%;
+  border: 1px solid makerLightGray;
+}
+
+.title:focus,
+.content:focus {
+  border-color: makerOrange;
+}
+
+.title {
+  height: 40px;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+
+.content {
+  padding: 10px 5px;
+  height: 300px;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.write,
+.cancel {
+  font-size: 0.875rem;
+  padding: 5px 10px;
+  margin: 0 8px;
+}
+
+.write {
+  background-color: makerBlack;
+  color: #fff;
+}
+
+.cancel {
+  background-color: makerLightGray;
+  color: makerBlack;
+}

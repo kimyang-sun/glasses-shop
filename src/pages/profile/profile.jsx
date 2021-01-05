@@ -19,7 +19,8 @@ const Profile = ({
   const profileDispatch = useProfileDispatch();
 
   // 프로필 저장
-  const onSave = () => {
+  const onSave = e => {
+    e.preventDefault();
     profileDispatch({
       type: 'SAVE',
       profile,
@@ -37,7 +38,7 @@ const Profile = ({
   return (
     <section>
       <h2 className={cx('title')}>내 정보</h2>
-      <div className={cx('box')}>
+      <form className={cx('box')} onSubmit={onSave}>
         <div className={cx('row')}>
           <span>사진</span>
           <ImageInput
@@ -61,7 +62,7 @@ const Profile = ({
             placeholder="이름을 입력하세요"
             maxLength="10"
             value={profile.name}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           />
         </div>
 
@@ -73,18 +74,18 @@ const Profile = ({
             placeholder="소개를 해주세요"
             maxLength="40"
             value={profile.message}
-            onChange={e => onChange(e)}
+            onChange={onChange}
           ></textarea>
         </div>
         <div className={cx('row')}>
-          <button className={cx('save')} onClick={onSave}>
+          <button className={cx('save')} type="submit">
             저장하기
           </button>
-          <button className={cx('logout')} onClick={onLogout}>
+          <button className={cx('logout')} type="button" onClick={onLogout}>
             로그아웃
           </button>
         </div>
-      </div>
+      </form>
     </section>
   );
 };

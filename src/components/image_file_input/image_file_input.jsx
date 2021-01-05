@@ -37,7 +37,7 @@ const ImageFileInput = ({
           ></div>
         )}
       </label>
-      <button className={cx('removeBtn')} onClick={imgOnRemove}>
+      <button className={cx('removeBtn')} type="button" onClick={imgOnRemove}>
         사진 내리기
       </button>
     </>

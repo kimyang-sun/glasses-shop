@@ -1,4 +1,5 @@
 @value makerBlack, makerOrange, makerBlue from 'common/colors.css';
+@value tiny from 'common/sizes.css';
 
 .bg {
   display: flex;
@@ -32,6 +33,11 @@
   height: 36px;
   padding: 0 5px;
   margin-bottom: 8px;
+}
+
+.form > input[type='email']:focus,
+.form > input[type='password']:focus {
+  border: 1px solid makerOrange;
 }
 
 .login {
@@ -68,4 +74,18 @@
 
 .icon {
   margin-right: 5px;
+}
+
+@media (max-width: tiny) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .googleLogin {
+    margin-bottom: 100px;
+  }
 }
