@@ -12,6 +12,7 @@ const Profile = ({
   profile,
   onChange,
   imgOnChange,
+  imgOnRemove,
   ImageInput,
 }) => {
   const history = useHistory();
@@ -24,6 +25,7 @@ const Profile = ({
       profile,
     });
     profileRepository.saveProfile(user.uid, profile);
+    alert('저장되었습니다 🙂');
   };
 
   // 계정 로그아웃
@@ -38,7 +40,11 @@ const Profile = ({
       <div className={cx('box')}>
         <div className={cx('row')}>
           <span>사진</span>
-          <ImageInput profile={profile} imgOnChange={imgOnChange} />
+          <ImageInput
+            profile={profile}
+            imgOnChange={imgOnChange}
+            imgOnRemove={imgOnRemove}
+          />
         </div>
         <div className={cx('row')}>
           <span>이메일</span>
@@ -53,6 +59,7 @@ const Profile = ({
             className={cx('name')}
             type="text"
             placeholder="이름을 입력하세요"
+            maxLength="10"
             value={profile.name}
             onChange={e => onChange(e)}
           />
@@ -64,6 +71,7 @@ const Profile = ({
             name={'message'}
             className={cx('message')}
             placeholder="소개를 해주세요"
+            maxLength="40"
             value={profile.message}
             onChange={e => onChange(e)}
           ></textarea>

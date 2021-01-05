@@ -1,0 +1,18 @@
+@value makerOrange from 'common/colors.css';
+
+.empty {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.writeBtn {
+  background-color: makerOrange;
+  color: #fff;
+  padding: 5px 10px;
+}

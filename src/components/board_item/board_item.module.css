@@ -1,0 +1,61 @@
+@value makerOrange, makerBlue, makerLightBlue, makerLightGray from 'common/colors.css';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  flex-basis: 50%;
+  max-width: 50%;
+  padding: 15px 30px;
+  transition: background-color 0.3s;
+  border-radius: 6px;
+}
+
+.item:hover {
+  background-color: makerLightBlue;
+}
+
+.box {
+  display: flex;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  transition: opacity 0.5s;
+}
+
+.img {
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img:hover {
+  opacity: 0.8;
+}
+
+.text {
+  padding-left: 15px;
+}
+
+.title {
+  font-size: 0.938rem;
+}
+
+.writer,
+.date {
+  font-size: 0.875rem;
+}
+
+.writer {
+  color: makerOrange;
+}
+
+.date {
+  font-size: 0.875rem;
+  color: makerBlue;
+}

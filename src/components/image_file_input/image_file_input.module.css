@@ -1,11 +1,10 @@
-@value makerLightGray from 'common/colors.css';
+@value makerLightGray, makerBlack from 'common/colors.css';
 
 .upload {
   display: none;
 }
 
-.img,
-.notImg {
+.img {
   cursor: pointer;
   width: 50px;
   height: 50px;
@@ -20,15 +19,15 @@
   background-size: cover;
 }
 
-.notImg {
-  font-size: 0.75rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: makerLightGray;
+.img:hover {
+  opacity: 0.8;
 }
 
-.img:hover,
-.notImg:hover {
-  opacity: 0.8;
+.removeBtn {
+  font-size: 0.75rem;
+  align-self: flex-end;
+  margin-left: 10px;
+  background-color: makerBlack;
+  color: #fff;
+  padding: 3px 5px;
 }

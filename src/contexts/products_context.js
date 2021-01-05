@@ -1,11 +1,27 @@
 import { createContext, useContext, useReducer } from 'react';
+import item1 from 'images/item_1.jpg';
+import item2 from 'images/item_2.jpg';
+import item3 from 'images/item_3.jpg';
+import item4 from 'images/item_4.jpg';
+import item5 from 'images/item_5.jpg';
+import item6 from 'images/item_6.jpg';
+import item7 from 'images/item_7.jpg';
+import item8 from 'images/item_8.jpg';
+import item9 from 'images/item_9.jpg';
+import item10 from 'images/item_10.jpg';
+import item11 from 'images/item_11.jpg';
+import item12 from 'images/item_12.jpg';
+import item13 from 'images/item_13.jpg';
+import item14 from 'images/item_14.jpg';
+import item15 from 'images/item_15.jpg';
+import item16 from 'images/item_16.jpg';
 
 // State
 const initialProducts = [
   {
     id: 1,
     name: '버킷리스트 루나',
-    url: require('images/item_1.jpg').default,
+    url: item1,
     price: 195000,
     coupon: 20000,
     cart: false,
@@ -13,7 +29,7 @@ const initialProducts = [
   {
     id: 2,
     name: '발망 하금테',
-    url: require('images/item_2.jpg').default,
+    url: item2,
     price: 314000,
     coupon: false,
     cart: false,
@@ -21,7 +37,7 @@ const initialProducts = [
   {
     id: 3,
     name: '키오야마토 메탈테',
-    url: require('images/item_3.jpg').default,
+    url: item3,
     price: 452000,
     coupon: 50000,
     cart: false,
@@ -29,7 +45,7 @@ const initialProducts = [
   {
     id: 4,
     name: '오엔엑스 뿔테',
-    url: require('images/item_4.jpg').default,
+    url: item4,
     price: 198000,
     coupon: 20000,
     cart: false,
@@ -37,7 +53,7 @@ const initialProducts = [
   {
     id: 5,
     name: '구찌 원형 뿔테 선글라스',
-    url: require('images/item_5.jpg').default,
+    url: item5,
     price: 240000,
     coupon: false,
     cart: false,
@@ -45,7 +61,7 @@ const initialProducts = [
   {
     id: 6,
     name: '구찌 로이 선글라스',
-    url: require('images/item_6.jpg').default,
+    url: item6,
     price: 250000,
     coupon: false,
     cart: false,
@@ -53,7 +69,7 @@ const initialProducts = [
   {
     id: 7,
     name: '레이벤 보잉 선글라스',
-    url: require('images/item_7.jpg').default,
+    url: item7,
     price: 175000,
     coupon: false,
     cart: false,
@@ -61,7 +77,7 @@ const initialProducts = [
   {
     id: 8,
     name: '비비안웨스트우드 선글라스',
-    url: require('images/item_8.jpg').default,
+    url: item8,
     price: 230000,
     coupon: 30000,
     cart: false,
@@ -69,7 +85,7 @@ const initialProducts = [
   {
     id: 9,
     name: '펍 원형 하금테',
-    url: require('images/item_9.jpg').default,
+    url: item9,
     price: 184000,
     coupon: false,
     cart: false,
@@ -77,7 +93,7 @@ const initialProducts = [
   {
     id: 10,
     name: '몽블랑 안경테',
-    url: require('images/item_10.jpg').default,
+    url: item10,
     price: 250000,
     coupon: false,
     cart: false,
@@ -85,7 +101,7 @@ const initialProducts = [
   {
     id: 11,
     name: '레이벤 투브릿지 보잉',
-    url: require('images/item_11.jpg').default,
+    url: item11,
     price: '119,000',
     coupon: false,
     cart: false,
@@ -93,7 +109,7 @@ const initialProducts = [
   {
     id: 12,
     name: '페누메탈 쿠에노 원형테',
-    url: require('images/item_12.jpg').default,
+    url: item12,
     price: 220000,
     coupon: 25000,
     cart: false,
@@ -101,7 +117,7 @@ const initialProducts = [
   {
     id: 13,
     name: '에스티듀퐁 선글라스',
-    url: require('images/item_13.jpg').default,
+    url: item13,
     price: 198000,
     coupon: false,
     cart: false,
@@ -109,7 +125,7 @@ const initialProducts = [
   {
     id: 14,
     name: '구찌 사각 뿔테 선글라스',
-    url: require('images/item_14.jpg').default,
+    url: item14,
     price: 250000,
     coupon: false,
     cart: false,
@@ -117,7 +133,7 @@ const initialProducts = [
   {
     id: 15,
     name: '구찌 하금테 선글라스',
-    url: require('images/item_15.jpg').default,
+    url: item15,
     price: 490000,
     coupon: 50000,
     cart: false,
@@ -125,7 +141,7 @@ const initialProducts = [
   {
     id: 16,
     name: '발망 콤비테 선글라스',
-    url: require('images/item_16.jpg').default,
+    url: item16,
     price: 260000,
     coupon: 30000,
     cart: false,

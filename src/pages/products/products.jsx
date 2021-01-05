@@ -2,7 +2,7 @@ import Pagination from 'components/pagination/pagination';
 import Product from 'components/product/product';
 import { useCartDispatch } from 'contexts/cart_context';
 import { useProductDispatch, useProductState } from 'contexts/products_context';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import styles from './products.module.css';
 
 const Products = ({ cartRepository, user }) => {
@@ -12,10 +12,10 @@ const Products = ({ cartRepository, user }) => {
 
   // 페이지 관련
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
-  const [postsPerPage, setPostsPerPage] = useState(4); // 페이지당 아이템 수
+  const postsPerPage = useRef(4); // 페이지당 아이템 수
 
-  const indexOfLast = currentPage * postsPerPage; // 마지막 페이지 순서
-  const indexOfFirst = indexOfLast - postsPerPage; // 첫 페이지 순서
+  const indexOfLast = currentPage * postsPerPage.current; // 마지막 페이지 순서
+  const indexOfFirst = indexOfLast - postsPerPage.current; // 첫 페이지 순서
   const currentPostsSlice = useCallback(
     posts => {
       const current = posts.slice(indexOfFirst, indexOfLast);
@@ -75,7 +75,7 @@ const Products = ({ cartRepository, user }) => {
         totalPosts={productState.length}
         page={currentPage}
         paginate={setCurrentPage}
-        postsPerPage={postsPerPage}
+        postsPerPage={postsPerPage.current}
       />
     </section>
   );

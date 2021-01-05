@@ -4,6 +4,7 @@ import { createContext, useContext, useReducer } from 'react';
 const initialProfile = {
   name: '',
   message: '',
+  img: null,
 };
 
 // Reducer

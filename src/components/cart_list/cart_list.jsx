@@ -15,7 +15,7 @@ const CartList = ({
   return (
     <>
       {cartState.length === 0 ? (
-        <div className={styles.empty}>장바구니가 비었습니다 😥</div>
+        <p className={styles.empty}>장바구니가 비었습니다 😥</p>
       ) : (
         <>
           <input

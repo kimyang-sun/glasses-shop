@@ -1,3 +1,4 @@
+import { BoardProvider } from 'contexts/board_context';
 import { CartProvider } from 'contexts/cart_context';
 import { ProductProvider } from 'contexts/products_context';
 import { ProfileProvider } from 'contexts/profile_context';
@@ -22,19 +23,21 @@ function App({ authService, cartRepository, profileRepository, ImageInput }) {
     <ProfileProvider>
       <ProductProvider>
         <CartProvider>
-          {init ? (
-            <AppRouter
-              authService={authService}
-              cartRepository={cartRepository}
-              profileRepository={profileRepository}
-              isLoggedIn={isLoggedIn}
-              user={userObj}
-              logoutHandler={logoutHandler}
-              ImageInput={ImageInput}
-            />
-          ) : (
-            <Loading />
-          )}
+          <BoardProvider>
+            {init ? (
+              <AppRouter
+                authService={authService}
+                cartRepository={cartRepository}
+                profileRepository={profileRepository}
+                isLoggedIn={isLoggedIn}
+                user={userObj}
+                logoutHandler={logoutHandler}
+                ImageInput={ImageInput}
+              />
+            ) : (
+              <Loading />
+            )}
+          </BoardProvider>
         </CartProvider>
       </ProductProvider>
     </ProfileProvider>

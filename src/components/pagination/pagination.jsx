@@ -11,7 +11,7 @@ const Pagination = ({ totalPosts, page, paginate, postsPerPage }) => {
   return (
     <ul className={cx('pages')}>
       {pageNumbers.map(number => (
-        <li className={cx('page')}>
+        <li className={cx('page')} key={number}>
           <button
             className={cx('pageBtn', { current: page === number })}
             onClick={() => paginate(number)}

@@ -30,10 +30,6 @@ const AppRouter = ({
     message: '',
     img: null,
   });
-  // 이미지 상태
-  // const [profileImg, setProfileImg] = useState({
-  //   url: null,
-  // });
 
   const profileOnChange = useCallback(
     e => {
@@ -56,6 +52,15 @@ const AppRouter = ({
     [profile]
   );
 
+  // 프로필 이미지 내리기
+  const imgOnRemove = useCallback(() => {
+    if (!profile.img) return;
+    setProfile({
+      ...profile,
+      img: null,
+    });
+  }, [profile]);
+
   // 프로필 받아오기
   useEffect(() => {
     if (user) {
@@ -68,8 +73,6 @@ const AppRouter = ({
       });
     }
   }, [profileDispatch, profileRepository, user]);
-
-  // 프로필 이미지 받아오기
 
   // 상품 받아오기 (장바구니 상태)
   useEffect(() => {
@@ -121,6 +124,7 @@ const AppRouter = ({
                 profile={profile}
                 onChange={profileOnChange}
                 imgOnChange={imgOnChange}
+                imgOnRemove={imgOnRemove}
                 ImageInput={ImageInput}
               />
             </Route>
