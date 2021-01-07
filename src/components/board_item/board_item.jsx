@@ -5,9 +5,9 @@ import defaultImg from 'images/no_img.jpg';
 const cx = classNames.bind(styles);
 
 const BoardItem = props => {
-  const { title, writer, img, date } = props;
+  const { title, writer, img, date, detailOpen } = props;
   return (
-    <li className={cx('item')}>
+    <li className={cx('item')} onClick={() => detailOpen(props)}>
       <div className={cx('box')}>
         {img ? (
           <div

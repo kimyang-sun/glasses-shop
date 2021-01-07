@@ -17,7 +17,7 @@ const Header = () => {
           <li className={cx({ current: location.pathname === '/products' })}>
             <Link to="/products">상품</Link>
           </li>
-          <li className={cx({ current: location.pathname === '/board' })}>
+          <li className={cx({ current: location.pathname.includes('/board') })}>
             <Link to="/board">게시판</Link>
           </li>
           <li className={cx({ current: location.pathname === '/cart' })}>

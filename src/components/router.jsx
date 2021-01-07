@@ -107,16 +107,16 @@ const AppRouter = ({
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/products">
+            <Route path="/products">
               <Products cartRepository={cartRepository} user={user} />
             </Route>
-            <Route exact path="/board">
+            <Route path="/board">
               <Board />
             </Route>
-            <Route exact path="/cart">
+            <Route path="/cart">
               <Cart cartRepository={cartRepository} user={user} />
             </Route>
-            <Route exact path="/profile">
+            <Route path="/profile">
               <Profile
                 profileRepository={profileRepository}
                 user={user}

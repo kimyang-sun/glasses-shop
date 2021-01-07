@@ -1,4 +1,5 @@
 @value makerOrange from 'common/colors.css';
+@value medium from 'common/sizes.css';
 
 .empty {
   font-size: 1.5rem;

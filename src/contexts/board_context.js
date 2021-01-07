@@ -72,7 +72,7 @@ const initialBoard = [
 function boardReducer(state, action) {
   switch (action.type) {
     case 'WRITE':
-      return;
+      return [...state, action.temp];
     case 'EDIT':
       return;
     case 'DELETE':

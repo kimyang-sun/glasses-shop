@@ -6,8 +6,7 @@ class ProfileRepository {
       .collection('users')
       .doc(userId)
       .collection('profile')
-      .get()
-      .then(snapshot => {
+      .onSnapshot(snapshot => {
         const profileData = snapshot.docs.map(doc => ({ ...doc.data() }));
         profileData && onUpdate(profileData[0]);
       });

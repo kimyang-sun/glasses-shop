@@ -1,4 +1,5 @@
 @value makerOrange, makerBlue, makerLightBlue, makerLightGray from 'common/colors.css';
+@value medium from 'common/sizes.css';
 
 .item {
   display: flex;
@@ -58,4 +59,11 @@
 .date {
   font-size: 0.875rem;
   color: makerBlue;
+}
+
+@media (max-width: medium) {
+  .item {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
 }
