@@ -60,6 +60,7 @@ const initialBoard = [
   },
   {
     id: 8,
+    uid: '00nnojnt0ga0KMjj9Gt4rejzNGE2',
     title: '글 테스트 8',
     writer: '어드민',
     img: null,
@@ -74,9 +75,16 @@ function boardReducer(state, action) {
     case 'WRITE':
       return [...state, action.temp];
     case 'EDIT':
-      return;
+      const edit = state.map(writing => {
+        if (writing.id === action.id) {
+          return { ...writing, title: action.title, content: action.content };
+        } else {
+          return { ...writing };
+        }
+      });
+      return edit;
     case 'DELETE':
-      return;
+      return state.filter(writing => writing.id !== action.id);
     default:
       throw new Error(`Invaild action type ${action.type}`);
   }

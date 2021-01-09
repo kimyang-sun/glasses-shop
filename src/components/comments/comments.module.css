@@ -1,0 +1,33 @@
+@value makerLightGray, makerBlack from 'common/colors.css';
+
+.container {
+  background-color: makerLightGray;
+  padding: 20px;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.inputBox {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0 5px;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  background-color: makerBlack;
+  color: #fff;
+  padding: 5px 8px;
+}

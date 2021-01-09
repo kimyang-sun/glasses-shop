@@ -32,6 +32,8 @@ const BoardList = ({ boardState, writeOpen, detailOpen }) => {
             {currentPosts.map(note => (
               <BoardItem
                 key={note.id}
+                uid={note.uid}
+                id={note.id}
                 title={note.title}
                 writer={note.writer}
                 content={note.content}

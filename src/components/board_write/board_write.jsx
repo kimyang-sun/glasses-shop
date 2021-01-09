@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { useBoardDispatch, useBoardNextId } from 'contexts/board_context';
 const cx = classNames.bind(styles);
 
-const BoardWrite = ({ profileState, writeCancel }) => {
+const BoardWrite = ({ userId, profileState, writeCancel }) => {
   const { name, img } = profileState;
   const dispatch = useBoardDispatch();
   const nextId = useBoardNextId();
@@ -37,6 +37,7 @@ const BoardWrite = ({ profileState, writeCancel }) => {
     });
     const temp = {
       ...note,
+      uid: userId,
       id: nextId.current,
       writer: name ? name : '이름없음',
       img: img,
