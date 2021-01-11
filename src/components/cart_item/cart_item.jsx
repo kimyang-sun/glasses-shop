@@ -3,20 +3,18 @@ import classNames from 'classnames/bind';
 import styles from './cart_item.module.css';
 const cx = classNames.bind(styles);
 
-const CartItem = props => {
-  const {
-    id,
-    name,
-    url,
-    price,
-    coupon,
-    count,
-    isChecked,
-    handleCheck,
-    handleIncrease,
-    handleDecrease,
-  } = props;
-
+const CartItem = ({
+  id,
+  name,
+  url,
+  price,
+  coupon,
+  count,
+  isChecked,
+  handleCheck,
+  handleIncrease,
+  handleDecrease,
+}) => {
   return (
     <li className={cx('item')}>
       <input

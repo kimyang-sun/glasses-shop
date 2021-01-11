@@ -121,7 +121,13 @@ function boardReducer(state, action) {
     case 'COMMENT_EDIT':
       return;
     case 'COMMENT_DELETE':
-      return;
+      return state.map(writing => {
+        if (writing.id === action.id) {
+          return { ...writing, comments: action.temp };
+        } else {
+          return writing;
+        }
+      });
     default:
       throw new Error(`Invaild action type ${action.type}`);
   }

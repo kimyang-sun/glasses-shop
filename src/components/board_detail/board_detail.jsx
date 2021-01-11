@@ -7,7 +7,7 @@ import BoardEdit from 'components/board_edit/board_edit';
 const cx = classNames.bind(styles);
 
 const BoardDetail = ({ userId, writing, setWriting, onDelete, profile }) => {
-  const { uid, id, title, writer, content, img, date, comments } = writing;
+  const { uid, id, title, writer, content, img, date } = writing;
   const [editing, setEditing] = useState(false);
 
   return (

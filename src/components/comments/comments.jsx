@@ -47,12 +47,22 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
     setComment('');
   };
 
+  // 댓글 삭제
+  const onDeleteHandle = temp => {
+    dispatch({
+      type: 'COMMENT_DELETE',
+      id,
+      temp,
+    });
+  };
+
   return (
     <div className={cx('container')}>
       <p className={cx('title')}>댓글</p>
       <ul className={cx('contents')}>
         {writing.comments.map(comment => (
           <Comment
+            userId={userId}
             key={comment.id}
             id={comment.id}
             uid={comment.uid}
@@ -60,6 +70,10 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
             name={comment.name}
             content={comment.content}
             date={comment.date}
+            dispatch={dispatch}
+            writing={writing}
+            setWriting={setWriting}
+            onDeleteHandle={onDeleteHandle}
           />
         ))}
       </ul>

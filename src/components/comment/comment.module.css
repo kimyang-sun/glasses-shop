@@ -1,4 +1,4 @@
-@value makerGray from 'common/colors.css';
+@value makerGray, makerBlack from 'common/colors.css';
 
 .box {
   font-size: 0.875rem;
@@ -36,9 +36,25 @@
   color: makerGray;
 }
 
-.content {
+.content,
+.input {
   margin-top: 5px;
-  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.input {
+  padding: 0 5px;
+  width: 200px;
+  font-size: 0.75rem;
+  height: 21px;
+}
+
+.editCheck {
+  font-size: 0.75rem;
+  margin-left: 5px;
+  background-color: makerBlack;
+  color: #fff;
+  padding: 2px 5px;
 }
 
 .btnBox {

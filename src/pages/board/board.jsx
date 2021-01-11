@@ -32,7 +32,7 @@ const Board = ({ user, profile }) => {
 
   // 게시물 삭제
   const onDelete = id => {
-    let result = window.confirm('정말 삭제하시겠습니까?');
+    let result = window.confirm('게시글을 삭제하시겠습니까?');
     if (result) {
       boardDispatch({
         type: 'DELETE',
