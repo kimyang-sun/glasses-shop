@@ -6,7 +6,7 @@ import { useProfileState } from 'contexts/profile_context';
 import React, { useState } from 'react';
 import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 
-const Board = ({ user }) => {
+const Board = ({ user, profile }) => {
   const boardState = useBoardState();
   const boardDispatch = useBoardDispatch();
   const profileState = useProfileState();
@@ -66,6 +66,7 @@ const Board = ({ user }) => {
             writing={writing}
             setWriting={setWriting}
             onDelete={onDelete}
+            profile={profile}
           />
         </Route>
       </Switch>

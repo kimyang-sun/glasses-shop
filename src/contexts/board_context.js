@@ -9,6 +9,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 1',
+    comments: [],
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 2',
+    comments: [],
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 3',
+    comments: [],
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 4',
+    comments: [],
   },
   {
     id: 5,
@@ -41,6 +45,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 5',
+    comments: [],
   },
   {
     id: 6,
@@ -49,6 +54,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 6',
+    comments: [],
   },
   {
     id: 7,
@@ -57,6 +63,7 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 7',
+    comments: [],
   },
   {
     id: 8,
@@ -66,6 +73,23 @@ const initialBoard = [
     img: null,
     date: '2021-01-01',
     content: '내용 8',
+    comments: [
+      {
+        id: 1,
+        uid: '00nnojnt0ga0KMjj9Gt4rejzNGE2',
+        img: null,
+        name: '어드민',
+        content: '댓글 테스트입니다1',
+        date: '2021-01-01',
+      },
+      {
+        id: 2,
+        img: null,
+        name: '어드민',
+        content: '댓글 테스트입니다2',
+        date: '2021-01-02',
+      },
+    ],
   },
 ];
 
@@ -79,12 +103,25 @@ function boardReducer(state, action) {
         if (writing.id === action.id) {
           return { ...writing, title: action.title, content: action.content };
         } else {
-          return { ...writing };
+          return writing;
         }
       });
       return edit;
     case 'DELETE':
       return state.filter(writing => writing.id !== action.id);
+    case 'COMMENT_ADD':
+      return state.map(writing => {
+        if (writing.id === action.id) {
+          const comments = [...writing.comments, action.temp];
+          return { ...writing, comments: comments };
+        } else {
+          return writing;
+        }
+      });
+    case 'COMMENT_EDIT':
+      return;
+    case 'COMMENT_DELETE':
+      return;
     default:
       throw new Error(`Invaild action type ${action.type}`);
   }

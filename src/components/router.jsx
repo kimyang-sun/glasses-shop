@@ -111,7 +111,7 @@ const AppRouter = ({
               <Products cartRepository={cartRepository} user={user} />
             </Route>
             <Route path="/board">
-              <Board user={user} />
+              <Board user={user} profile={profile} />
             </Route>
             <Route path="/cart">
               <Cart cartRepository={cartRepository} user={user} />

@@ -1,0 +1,53 @@
+@value makerGray from 'common/colors.css';
+
+.box {
+  font-size: 0.875rem;
+  padding: 10px 5px;
+  position: relative;
+}
+
+.box:not(:last-child) {
+  border-bottom: 1px solid makerGray;
+}
+
+.img,
+.name,
+.date {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.date {
+  font-size: 0.75rem;
+  padding-left: 8px;
+  color: makerGray;
+}
+
+.content {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.btnBox {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.btnBox > button {
+  font-size: 0.75rem;
+  margin: 0 3px;
+}

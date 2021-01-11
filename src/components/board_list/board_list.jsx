@@ -39,6 +39,7 @@ const BoardList = ({ boardState, writeOpen, detailOpen }) => {
                 content={note.content}
                 img={note.img}
                 date={note.date}
+                comments={note.comments}
                 detailOpen={detailOpen}
               />
             ))}

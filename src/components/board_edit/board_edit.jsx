@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './board_edit.module.css';
 import classNames from 'classnames/bind';
-import { useBoardDispatch, useBoardNextId } from 'contexts/board_context';
+import { useBoardDispatch } from 'contexts/board_context';
 const cx = classNames.bind(styles);
 
 const BoardEdit = ({ writing, setWriting, setEditing }) => {
