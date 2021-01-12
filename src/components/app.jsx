@@ -6,7 +6,13 @@ import { useCallback, useEffect, useState } from 'react';
 import Loading from './loading/loading';
 import AppRouter from './router';
 
-function App({ authService, cartRepository, profileRepository, ImageInput }) {
+function App({
+  authService,
+  cartRepository,
+  profileRepository,
+  boardRepository,
+  ImageInput,
+}) {
   const [init, setInit] = useState(false); // 로그인정보가 불러와지는걸 기다리기 위한 상태
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
   const [userObj, setUserObj] = useState(null);
@@ -29,6 +35,7 @@ function App({ authService, cartRepository, profileRepository, ImageInput }) {
                 authService={authService}
                 cartRepository={cartRepository}
                 profileRepository={profileRepository}
+                boardRepository={boardRepository}
                 isLoggedIn={isLoggedIn}
                 user={userObj}
                 logoutHandler={logoutHandler}

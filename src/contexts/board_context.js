@@ -96,6 +96,8 @@ const initialBoard = [
 // Reducer
 function boardReducer(state, action) {
   switch (action.type) {
+    case 'IMPORT':
+      return [...action.board];
     case 'WRITE':
       return [...state, action.temp];
     case 'EDIT':

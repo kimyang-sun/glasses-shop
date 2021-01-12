@@ -2,7 +2,7 @@ import { firebaseFireStore } from './firebase';
 
 class ProfileRepository {
   syncProfile(userId, onUpdate) {
-    firebaseFireStore
+    const unsubscribe = firebaseFireStore
       .collection('users')
       .doc(userId)
       .collection('profile')
@@ -10,6 +10,7 @@ class ProfileRepository {
         const profileData = snapshot.docs.map(doc => ({ ...doc.data() }));
         profileData && onUpdate(profileData[0]);
       });
+    return () => unsubscribe();
   }
 
   saveProfile(userId, profile) {

@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { useBoardDispatch, useBoardNextId } from 'contexts/board_context';
 const cx = classNames.bind(styles);
 
-const BoardWrite = ({ userId, profileState, writeCancel }) => {
+const BoardWrite = ({ userId, profileState, writeCancel, boardRepository }) => {
   const { name, img } = profileState;
   const dispatch = useBoardDispatch();
   const nextId = useBoardNextId();
@@ -42,6 +42,7 @@ const BoardWrite = ({ userId, profileState, writeCancel }) => {
       writer: name ? name : '이름없음',
       img: img,
       date: `${year}-${month}-${day}`,
+      comments: [],
     };
 
     // 글쓰기 디스패치
@@ -49,11 +50,16 @@ const BoardWrite = ({ userId, profileState, writeCancel }) => {
       type: 'WRITE',
       temp,
     });
+
+    // FireStore 저장
+    boardRepository.saveBoard(nextId.current, temp);
+
     // 글쓰기 버튼을 누르면 input 초기화
     setNote({
       title: '',
       content: '',
     });
+
     // 고유 id도 1을 더해준다
     nextId.current += 1;
     writeCancel();

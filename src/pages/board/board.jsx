@@ -6,7 +6,7 @@ import { useProfileState } from 'contexts/profile_context';
 import React, { useState } from 'react';
 import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 
-const Board = ({ user, profile }) => {
+const Board = ({ user, profile, boardRepository }) => {
   const boardState = useBoardState();
   const boardDispatch = useBoardDispatch();
   const profileState = useProfileState();
@@ -58,6 +58,7 @@ const Board = ({ user, profile }) => {
             userId={userId}
             profileState={profileState}
             writeCancel={writeCancel}
+            boardRepository={boardRepository}
           />
         </Route>
         <Route path={`${match.path}/detail`}>

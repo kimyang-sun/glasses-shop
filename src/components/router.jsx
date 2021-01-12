@@ -1,3 +1,4 @@
+import { useBoardDispatch } from 'contexts/board_context';
 import { useCartDispatch } from 'contexts/cart_context';
 import { useProductDispatch } from 'contexts/products_context';
 import { useProfileDispatch } from 'contexts/profile_context';
@@ -15,6 +16,7 @@ const AppRouter = ({
   authService,
   cartRepository,
   profileRepository,
+  boardRepository,
   isLoggedIn,
   user,
   logoutHandler,
@@ -23,6 +25,7 @@ const AppRouter = ({
   const profileDispatch = useProfileDispatch();
   const productDispatch = useProductDispatch();
   const cartDispatch = useCartDispatch();
+  const boardDispatch = useBoardDispatch();
 
   // 프로필 실시간 상태
   const [profile, setProfile] = useState({
@@ -64,13 +67,14 @@ const AppRouter = ({
   // 프로필 받아오기
   useEffect(() => {
     if (user) {
-      profileRepository.syncProfile(user.uid, profileData => {
+      const complete = profileRepository.syncProfile(user.uid, profileData => {
         profileDispatch({
           type: 'IMPORT',
           profile: profileData,
         });
         setProfile({ ...profileData });
       });
+      return () => complete(); // 리스너 분리 (다 불러오면 더이상 호출되지 않도록 함)
     }
   }, [profileDispatch, profileRepository, user]);
 
@@ -98,6 +102,18 @@ const AppRouter = ({
     }
   }, [cartDispatch, cartRepository, user]);
 
+  // 게시판 받아오기
+  useEffect(() => {
+    if (user) {
+      boardRepository.syncBoard(boardData => {
+        boardDispatch({
+          type: 'IMPORT',
+          board: boardData,
+        });
+      });
+    }
+  }, [boardRepository, user]);
+
   return (
     <BrowserRouter>
       {isLoggedIn && <Header />}
@@ -111,7 +127,11 @@ const AppRouter = ({
               <Products cartRepository={cartRepository} user={user} />
             </Route>
             <Route path="/board">
-              <Board user={user} profile={profile} />
+              <Board
+                user={user}
+                profile={profile}
+                boardRepository={boardRepository}
+              />
             </Route>
             <Route path="/cart">
               <Cart cartRepository={cartRepository} user={user} />
