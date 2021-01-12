@@ -119,7 +119,13 @@ function boardReducer(state, action) {
         }
       });
     case 'COMMENT_EDIT':
-      return;
+      return state.map(writing => {
+        if (writing.id === action.id) {
+          return { ...writing, comments: action.temp };
+        } else {
+          return writing;
+        }
+      });
     case 'COMMENT_DELETE':
       return state.map(writing => {
         if (writing.id === action.id) {

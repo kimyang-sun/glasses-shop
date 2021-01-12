@@ -14,6 +14,7 @@ const Comment = ({
   date,
   writing,
   setWriting,
+  onEditHandle,
   onDeleteHandle,
 }) => {
   const [editing, setEditing] = useState(false);
@@ -28,6 +29,15 @@ const Comment = ({
   // 수정확인
   const onCheckEdit = () => {
     setEditing(false);
+    const temp = writing.comments.map(value => {
+      if (value.id === id) {
+        return { ...value, content: comment };
+      } else {
+        return value;
+      }
+    });
+    setWriting({ ...writing, comments: temp });
+    onEditHandle(temp);
   };
 
   // 삭제

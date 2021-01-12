@@ -47,6 +47,15 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
     setComment('');
   };
 
+  // 댓글 수정
+  const onEditHandle = temp => {
+    dispatch({
+      type: 'COMMENT_EDIT',
+      id,
+      temp,
+    });
+  };
+
   // 댓글 삭제
   const onDeleteHandle = temp => {
     dispatch({
@@ -73,6 +82,7 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
             dispatch={dispatch}
             writing={writing}
             setWriting={setWriting}
+            onEditHandle={onEditHandle}
             onDeleteHandle={onDeleteHandle}
           />
         ))}
