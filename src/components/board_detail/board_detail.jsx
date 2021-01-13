@@ -6,7 +6,14 @@ import defaultImg from 'images/no_img.jpg';
 import BoardEdit from 'components/board_edit/board_edit';
 const cx = classNames.bind(styles);
 
-const BoardDetail = ({ userId, writing, setWriting, onDelete, profile }) => {
+const BoardDetail = ({
+  userId,
+  writing,
+  setWriting,
+  onDelete,
+  profile,
+  boardRepository,
+}) => {
   const { uid, id, title, writer, content, img, date } = writing;
   const [editing, setEditing] = useState(false);
 
@@ -17,6 +24,7 @@ const BoardDetail = ({ userId, writing, setWriting, onDelete, profile }) => {
           writing={writing}
           setWriting={setWriting}
           setEditing={setEditing}
+          boardRepository={boardRepository}
         />
       ) : (
         <div className={cx('container')}>

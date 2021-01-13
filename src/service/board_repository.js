@@ -12,7 +12,14 @@ class BoardRepository {
     firebaseFireStore.collection('board').doc(String(id)).set(writing);
   }
 
-  removeBoard() {}
+  updateBoard(id, writing) {
+    console.log(writing);
+    firebaseFireStore.doc(`board/${id}`).update(writing);
+  }
+
+  removeBoard(id) {
+    firebaseFireStore.doc(`board/${id}`).delete();
+  }
 }
 
 export default BoardRepository;

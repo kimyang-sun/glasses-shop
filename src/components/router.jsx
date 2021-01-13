@@ -112,7 +112,7 @@ const AppRouter = ({
         });
       });
     }
-  }, [boardRepository, user]);
+  }, [boardDispatch, boardRepository, user]);
 
   return (
     <BrowserRouter>

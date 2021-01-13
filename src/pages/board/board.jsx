@@ -27,7 +27,9 @@ const Board = ({ user, profile, boardRepository }) => {
   // 게시글 보기
   const detailOpen = clicked => {
     history.push(`${match.url}/detail`);
-    setWriting(clicked);
+    const temp = { ...clicked };
+    delete temp.detailOpen;
+    setWriting(temp);
   };
 
   // 게시물 삭제
@@ -40,6 +42,7 @@ const Board = ({ user, profile, boardRepository }) => {
       });
       alert('삭제되었습니다');
       history.push(`${match.url}`);
+      boardRepository.removeBoard(id); // firestore 삭제
     }
   };
 
@@ -68,6 +71,7 @@ const Board = ({ user, profile, boardRepository }) => {
             setWriting={setWriting}
             onDelete={onDelete}
             profile={profile}
+            boardRepository={boardRepository}
           />
         </Route>
       </Switch>

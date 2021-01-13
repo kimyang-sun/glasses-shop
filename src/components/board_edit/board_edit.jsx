@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { useBoardDispatch } from 'contexts/board_context';
 const cx = classNames.bind(styles);
 
-const BoardEdit = ({ writing, setWriting, setEditing }) => {
+const BoardEdit = ({ writing, setWriting, setEditing, boardRepository }) => {
   const { id, title, content } = writing;
   const dispatch = useBoardDispatch();
   const [note, setNote] = useState({
@@ -29,8 +29,10 @@ const BoardEdit = ({ writing, setWriting, setEditing }) => {
       id,
       ...note,
     });
-
-    setWriting({ ...writing, ...note });
+    const temp = { ...writing, ...note };
+    setWriting(temp);
+    console.log(temp);
+    boardRepository.updateBoard(id, temp); // firestore 수정
     setEditing(false);
     alert('수정되었습니다');
   };
