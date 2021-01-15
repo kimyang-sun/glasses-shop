@@ -5,7 +5,14 @@ import Comment from 'components/comment/comment';
 import { useBoardDispatch } from 'contexts/board_context';
 const cx = classNames.bind(styles);
 
-const Comments = ({ userId, id, profile, writing, setWriting }) => {
+const Comments = ({
+  userId,
+  id,
+  profile,
+  writing,
+  setWriting,
+  boardRepository,
+}) => {
   const [comment, setComment] = useState('');
   const dispatch = useBoardDispatch();
 
@@ -45,6 +52,8 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
       comments: [...writing.comments, temp],
     });
     setComment('');
+
+    boardRepository.saveComment(id, writing, temp); // Firestore 적용
   };
 
   // 댓글 수정
@@ -54,6 +63,8 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
       id,
       temp,
     });
+
+    boardRepository.updateComment(id, writing, temp); // Firestore 적용
   };
 
   // 댓글 삭제
@@ -63,6 +74,8 @@ const Comments = ({ userId, id, profile, writing, setWriting }) => {
       id,
       temp,
     });
+
+    boardRepository.updateComment(id, writing, temp); // Firestore 적용
   };
 
   return (

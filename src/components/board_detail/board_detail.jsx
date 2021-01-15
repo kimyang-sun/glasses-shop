@@ -61,6 +61,7 @@ const BoardDetail = ({
             profile={profile}
             writing={writing}
             setWriting={setWriting}
+            boardRepository={boardRepository}
           />
         </div>
       )}

@@ -20,6 +20,17 @@ class BoardRepository {
   removeBoard(id) {
     firebaseFireStore.doc(`board/${id}`).delete();
   }
+
+  // 댓글
+  saveComment(id, writing, temp) {
+    const addWriting = { ...writing, comments: [...writing.comments, temp] };
+    firebaseFireStore.doc(`board/${id}`).update(addWriting);
+  }
+
+  updateComment(id, writing, temp) {
+    const modifyWriting = { ...writing, comments: temp };
+    firebaseFireStore.doc(`board/${id}`).update(modifyWriting);
+  }
 }
 
 export default BoardRepository;

@@ -31,7 +31,6 @@ const BoardEdit = ({ writing, setWriting, setEditing, boardRepository }) => {
     });
     const temp = { ...writing, ...note };
     setWriting(temp);
-    console.log(temp);
     boardRepository.updateBoard(id, temp); // firestore 수정
     setEditing(false);
     alert('수정되었습니다');

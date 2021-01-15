@@ -51,7 +51,7 @@ const BoardWrite = ({ userId, profileState, writeCancel, boardRepository }) => {
       temp,
     });
 
-    // FireStore 저장
+    // Firestore 저장
     boardRepository.saveBoard(nextId.current, temp);
 
     // 글쓰기 버튼을 누르면 input 초기화
