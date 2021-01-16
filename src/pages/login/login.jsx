@@ -8,7 +8,6 @@ const Login = ({ authService }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [newAccount, setNewAccount] = useState(false);
-  const [error, setError] = useState('');
 
   const onChange = e => {
     const { name, value } = e.target;
@@ -19,9 +18,9 @@ const Login = ({ authService }) => {
     }
   };
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    authService.login(newAccount, email, password, setError);
+    await authService.login(newAccount, email, password);
   };
 
   const toggleAccount = () => setNewAccount(prev => !prev);

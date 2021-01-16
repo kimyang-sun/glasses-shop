@@ -1,17 +1,22 @@
 import { firebaseAuth, googleProvider } from './firebase';
 
 class AuthService {
-  login(newAccount, email, password, setError) {
+  async login(newAccount, email, password) {
     try {
+      let data;
       if (newAccount) {
         // 만약 계정이 새로운거면 새로 생성하고
-        firebaseAuth.createUserWithEmailAndPassword(email, password);
+        data = await firebaseAuth.createUserWithEmailAndPassword(
+          email,
+          password
+        );
       } else {
         // 계정이 있던 계정이면 회원가입이 됩니다
-        firebaseAuth.signInWithEmailAndPassword(email, password);
+        // eslint-disable-next-line no-unused-vars
+        data = await firebaseAuth.signInWithEmailAndPassword(email, password);
       }
     } catch (error) {
-      setError(error.message);
+      alert(error.message);
     }
   }
 

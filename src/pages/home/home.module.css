@@ -55,4 +55,8 @@
   .navItem > a {
     padding: 24px 0;
   }
+
+  .icon {
+    font-size: 2.5rem;
+  }
 }
