@@ -65,5 +65,6 @@
   .item {
     flex-basis: 100%;
     max-width: 100%;
+    padding: 15px 0;
   }
 }

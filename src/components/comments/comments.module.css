@@ -1,4 +1,5 @@
 @value makerLightGray, makerBlack from 'common/colors.css';
+@value medium from 'common/sizes.css';
 
 .container {
   background-color: makerLightGray;
@@ -31,4 +32,10 @@
   background-color: makerBlack;
   color: #fff;
   padding: 5px 8px;
+}
+
+@media (max-width: medium) {
+  .container {
+    padding: 20px 15px;
+  }
 }

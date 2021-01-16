@@ -1,12 +1,12 @@
 import classNames from 'classnames/bind';
 import React, { useMemo } from 'react';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { FiShoppingBag } from 'react-icons/fi';
 import styles from './product.module.css';
 const cx = classNames.bind(styles);
 
 const Product = props => {
   const { name, url, price, coupon, cart, handleAddOrRemove } = props;
-  const cartIcon = useMemo(() => <AiOutlineShoppingCart size="24" />, []);
+  const cartIcon = useMemo(() => <FiShoppingBag size="24" />, []);
 
   return (
     <li className={cx('item')}>

@@ -1,0 +1,58 @@
+@value makerBlack, makerOrange, makerGray from 'common/colors.css';
+@value medium from 'common/sizes.css';
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  color: makerBlack;
+  margin: 0 -15px;
+}
+
+.navItem {
+  flex-basis: 25%;
+  max-width: 25%;
+  text-align: center;
+  padding: 15px;
+}
+
+.navItem > a {
+  display: block;
+  border: 2px solid makerGray;
+  border-radius: 8px;
+  padding: 40px 0;
+}
+
+.icon,
+.title {
+  transition: color 0.3s;
+}
+
+.navItem > a:hover > * {
+  color: makerOrange;
+}
+
+.icon {
+  font-size: 3rem;
+}
+
+.title {
+  font-size: 1.125rem;
+  margin: 0;
+  padding-top: 30px;
+}
+
+@media (max-width: medium) {
+  .nav {
+    margin: 0 -7.5px;
+  }
+
+  .navItem {
+    flex-basis: 50%;
+    max-width: 50%;
+    padding: 7.5px;
+  }
+
+  .navItem > a {
+    padding: 24px 0;
+  }
+}
