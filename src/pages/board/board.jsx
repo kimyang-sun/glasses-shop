@@ -20,7 +20,7 @@ const Board = ({ user, profile, boardRepository }) => {
     history.push(`${match.url}/write`);
   };
 
-  const writeCancel = () => {
+  const onCancel = () => {
     history.push(`${match.url}`);
   };
 
@@ -30,6 +30,7 @@ const Board = ({ user, profile, boardRepository }) => {
     const temp = { ...clicked };
     delete temp.detailOpen;
     setWriting(temp);
+    boardRepository.saveBoardDetail(userId, temp);
   };
 
   // 게시물 삭제
@@ -60,18 +61,21 @@ const Board = ({ user, profile, boardRepository }) => {
           <BoardWrite
             userId={userId}
             profileState={profileState}
-            writeCancel={writeCancel}
+            writeCancel={onCancel}
             boardRepository={boardRepository}
           />
         </Route>
         <Route path={`${match.path}/detail`}>
           <BoardDetail
             userId={userId}
+            match={match}
+            history={history}
             writing={writing}
             setWriting={setWriting}
             onDelete={onDelete}
             profile={profile}
             boardRepository={boardRepository}
+            refresh={onCancel}
           />
         </Route>
       </Switch>
