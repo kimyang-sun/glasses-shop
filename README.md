@@ -1,4 +1,4 @@
-# TODO List App (React.js)
+# Glasses Shop (React.js)
 
 - 로그인 화면
   ![image](https://user-images.githubusercontent.com/56675004/104903916-f0e58300-59c3-11eb-89d0-bc960437428c.png)
