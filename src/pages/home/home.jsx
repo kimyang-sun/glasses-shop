@@ -28,15 +28,15 @@ const Home = () => {
           </Link>
         </li>
         <li className={cx('navItem')}>
-          <Link to="/board">
-            {boardIcon}
-            <h3 className={cx('title')}>게시판</h3>
-          </Link>
-        </li>
-        <li className={cx('navItem')}>
           <Link to="/cart">
             {cartIcon}
             <h3 className={cx('title')}>장바구니</h3>
+          </Link>
+        </li>
+        <li className={cx('navItem')}>
+          <Link to="/board">
+            {boardIcon}
+            <h3 className={cx('title')}>게시판</h3>
           </Link>
         </li>
         <li>

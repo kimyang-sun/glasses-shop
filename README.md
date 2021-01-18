@@ -4,10 +4,16 @@
   ![image](https://user-images.githubusercontent.com/56675004/104903916-f0e58300-59c3-11eb-89d0-bc960437428c.png)
 
 - 메인
-  ![image](https://user-images.githubusercontent.com/56675004/104904089-212d2180-59c4-11eb-9f22-89ef29eadc75.png)
+  ![image](https://user-images.githubusercontent.com/56675004/104909889-e29b6500-59cb-11eb-8fb4-e30ba6d7e10d.png)
+
+- 내 정보
+  ![image](https://user-images.githubusercontent.com/56675004/104904599-afa1a300-59c4-11eb-96ea-896d7a7a7cba.png)
 
 - 상품
   ![image](https://user-images.githubusercontent.com/56675004/104904127-2db17a00-59c4-11eb-89e1-77973350a7af.png)
+
+- 장바구니
+  ![image](https://user-images.githubusercontent.com/56675004/104904496-900a7a80-59c4-11eb-87ed-8bb299749e2c.png)
 
 - 게시판
   ![image](https://user-images.githubusercontent.com/56675004/104904212-4588fe00-59c4-11eb-937f-653b64e412ac.png)
@@ -15,12 +21,6 @@
   ![image](https://user-images.githubusercontent.com/56675004/104904261-546fb080-59c4-11eb-9d8f-b98d25df42c0.png)
 
   ![image](https://user-images.githubusercontent.com/56675004/104904428-7e28d780-59c4-11eb-9d59-246b43a5c567.png)
-
-- 장바구니
-  ![image](https://user-images.githubusercontent.com/56675004/104904496-900a7a80-59c4-11eb-87ed-8bb299749e2c.png)
-
-- 내 정보
-  ![image](https://user-images.githubusercontent.com/56675004/104904599-afa1a300-59c4-11eb-96ea-896d7a7a7cba.png)
 
 ---
 
