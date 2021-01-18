@@ -12,7 +12,6 @@ const CartList = ({
   handleIncrease,
   handleDecrease,
 }) => {
-  console.log('list');
   return (
     <>
       {cartState.length === 0 ? (

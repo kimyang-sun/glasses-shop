@@ -44,8 +44,6 @@ const Amount = ({ isChecked, handleCoupon, discountState }) => {
     }
   }, [couponState, discountState, isChecked, price]);
 
-  console.log('amount');
-
   return (
     <div className={cx('container')}>
       <h3 className={cx('title')}>결제 금액</h3>
