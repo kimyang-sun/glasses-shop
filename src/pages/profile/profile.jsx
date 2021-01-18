@@ -65,7 +65,6 @@ const Profile = ({
             onChange={onChange}
           />
         </div>
-
         <div className={cx('row')}>
           <span>소개</span>
           <textarea

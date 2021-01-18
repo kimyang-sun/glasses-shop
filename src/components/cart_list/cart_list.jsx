@@ -12,6 +12,7 @@ const CartList = ({
   handleIncrease,
   handleDecrease,
 }) => {
+  console.log('list');
   return (
     <>
       {cartState.length === 0 ? (
@@ -50,4 +51,4 @@ const CartList = ({
   );
 };
 
-export default CartList;
+export default React.memo(CartList);

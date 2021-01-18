@@ -3,7 +3,7 @@ import BoardList from 'components/board_list/board_list';
 import BoardWrite from 'components/board_write/board_write';
 import { useBoardDispatch, useBoardState } from 'contexts/board_context';
 import { useProfileState } from 'contexts/profile_context';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 
 const Board = ({ user, profile, boardRepository }) => {
@@ -16,36 +16,41 @@ const Board = ({ user, profile, boardRepository }) => {
   const userId = user.uid;
 
   // 글쓰기
-  const writeOpen = () => {
+  const writeOpen = useCallback(() => {
     history.push(`${match.url}/write`);
-  };
+  }, [history, match.url]);
 
-  const onCancel = () => {
+  const onCancel = useCallback(() => {
     history.push(`${match.url}`);
-  };
+  }, [history, match.url]);
 
   // 게시글 보기
-  const detailOpen = clicked => {
-    history.push(`${match.url}/detail`);
-    const temp = { ...clicked };
-    delete temp.detailOpen;
-    setWriting(temp);
-    boardRepository.saveBoardDetail(userId, temp);
-  };
+  const detailOpen = useCallback(
+    clicked => {
+      history.push(`${match.url}/detail`);
+      const temp = { ...clicked };
+      delete temp.detailOpen;
+      setWriting(temp);
+    },
+    [history, match.url]
+  );
 
   // 게시물 삭제
-  const onDelete = id => {
-    let result = window.confirm('게시글을 삭제하시겠습니까?');
-    if (result) {
-      boardDispatch({
-        type: 'DELETE',
-        id,
-      });
-      alert('삭제되었습니다');
-      history.push(`${match.url}`);
-      boardRepository.removeBoard(id); // firestore 삭제
-    }
-  };
+  const onDelete = useCallback(
+    id => {
+      let result = window.confirm('게시글을 삭제하시겠습니까?');
+      if (result) {
+        boardDispatch({
+          type: 'DELETE',
+          id,
+        });
+        alert('삭제되었습니다');
+        history.push(`${match.url}`);
+        boardRepository.removeBoard(id); // firestore 삭제
+      }
+    },
+    [boardDispatch, boardRepository, history, match.url]
+  );
 
   return (
     <section>

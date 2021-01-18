@@ -26,33 +26,36 @@ const Products = ({ cartRepository, user }) => {
   const currentPosts = currentPostsSlice(productState);
 
   // 카트 담기 및 빼기
-  const handleAddOrRemove = item => {
-    const { id, name, url, price, coupon, cart } = item;
+  const handleAddOrRemove = useCallback(
+    item => {
+      const { id, name, url, price, coupon, cart } = item;
 
-    // 카트상태가 담겨있는 상태면 빼야하고 그렇지 않으면 담아야 합니다.
-    if (cart) {
-      cartDispatch({
-        type: 'REMOVE',
-        id,
-      });
-      productDispatch({
-        type: 'CART_REMOVE',
-        id,
-      });
-      cartRepository.removeCart(user.uid, id); // Firestore에 적용
-    } else {
-      const item = { id, name, url, price, coupon, count: 1 };
-      cartDispatch({
-        type: 'ADD',
-        item: { ...item },
-      });
-      productDispatch({
-        type: 'CART_ADD',
-        id,
-      });
-      cartRepository.saveCart(user.uid, id, item); // Firestore에 적용
-    }
-  };
+      // 카트상태가 담겨있는 상태면 빼야하고 그렇지 않으면 담아야 합니다.
+      if (cart) {
+        cartDispatch({
+          type: 'REMOVE',
+          id,
+        });
+        productDispatch({
+          type: 'CART_REMOVE',
+          id,
+        });
+        cartRepository.removeCart(user.uid, id); // Firestore에 적용
+      } else {
+        const item = { id, name, url, price, coupon, count: 1 };
+        cartDispatch({
+          type: 'ADD',
+          item: { ...item },
+        });
+        productDispatch({
+          type: 'CART_ADD',
+          id,
+        });
+        cartRepository.saveCart(user.uid, id, item); // Firestore에 적용
+      }
+    },
+    [cartDispatch, cartRepository, productDispatch, user.uid]
+  );
 
   return (
     <section>

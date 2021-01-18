@@ -44,4 +44,4 @@ const ImageFileInput = ({
   );
 };
 
-export default ImageFileInput;
+export default React.memo(ImageFileInput);

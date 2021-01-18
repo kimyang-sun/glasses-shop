@@ -30,4 +30,4 @@ const BoardItem = props => {
   );
 };
 
-export default BoardItem;
+export default React.memo(BoardItem);

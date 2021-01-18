@@ -8,6 +8,7 @@ const Pagination = ({ totalPosts, page, paginate, postsPerPage }) => {
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
+
   return (
     <ul className={cx('pages')}>
       {pageNumbers.map(number => (
@@ -24,4 +25,4 @@ const Pagination = ({ totalPosts, page, paginate, postsPerPage }) => {
   );
 };
 
-export default Pagination;
+export default React.memo(Pagination);
