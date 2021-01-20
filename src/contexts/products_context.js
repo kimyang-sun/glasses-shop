@@ -102,7 +102,7 @@ const initialProducts = [
     id: 11,
     name: '레이벤 투브릿지 보잉',
     url: item11,
-    price: '119,000',
+    price: 119000,
     coupon: false,
     cart: false,
   },
