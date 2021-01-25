@@ -101,7 +101,7 @@ const Cart = ({ cartRepository, user }) => {
         setDiscountState('fixed');
         break;
       default:
-        throw new Error(`Invaild event target ${e.target.id}`);
+        throw new Error(`Invalid event target ${e.target.id}`);
     }
   };
 

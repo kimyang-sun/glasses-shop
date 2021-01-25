@@ -15,7 +15,7 @@ function profileReducer(state, action) {
     case 'SAVE':
       return { ...action.profile };
     default:
-      throw new Error(`Invaild action type ${action.type}`);
+      throw new Error(`Invalid action type ${action.type}`);
   }
 }
 
